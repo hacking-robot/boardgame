@@ -68,26 +68,6 @@ class Board {
         return newState;
       }
     }
-/*
-    if(!current.validateMove(move)) {
-      return false;
-    }
-
-    let newState = current.move(move);
-    if(!newState) {
-      return false;
-    }
-
-    if(typeof this.boardSettings.settings.stateValidator === "function") {
-      if(this.boardSettings.settings.stateValidator(newState)) {
-        this.addState(newState);
-        return true;
-      }
-    } else {
-      this.addState(newState);
-      return true;
-    }
-*/
     return false;
   }
 
