@@ -4,9 +4,7 @@ class BoardSettings {
       size: "8x8",
       numberPlayers: 2,
       position: [],
-      pieces: {},
-      moveValidator: function(state, move) {return true;},
-      moveGenerator: function(state, move) {return true;}
+      pieces: {}
     },settings);
 
     let size = this.settings.size.split("x");

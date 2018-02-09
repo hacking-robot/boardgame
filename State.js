@@ -134,14 +134,6 @@ class State {
     return false;
   }
 
-  /*
-  legalMove(move) {
-    this.board[move.toSquare.x*move.toSquare.y] = this.board[move.fromSquare.x*move.fromSquare.y];
-    this.board[move.fromSquare.x*move.fromSquare.y] = null;
-    return true;
-  }
-  */
-
   clone() {
     return new State(this.boardSettings, JSON.parse(JSON.stringify(this.board)), this.moveNumber, this.playerTurn, this.flags);
   }
@@ -153,40 +145,6 @@ class State {
     squares = squares.concat(this.getWSquares(square, limit, canCapture));
 
     return squares;
-
-    /*
-    if(freeWayOnly === undefined) {
-      freeWayOnly = true;
-    }
-    if(canCapture === undefined) {
-      canCapture = true;
-    }
-    let squares = [];
-    let blockedUpY = -1;
-    let blockedDownY = this.boardSettings.numberRank;
-    for(let y = 0; y < this.boardSettings.numberRank; y++) {
-      if(typeof this.board[y*this.boardSettings.numberFile+square.x] == "object" && this.board[y*this.boardSettings.numberFile+square.x] !== null) {
-        if(y < square.y) {
-          blockedUpY = y;
-        }
-        if(y > square.y) {
-          blockedDownY = y;
-        }
-      }
-      if(limit !== undefined && Math.abs(y -  square.y) > limit) {
-        continue;
-      }
-      if(canCapture && y == square.y) {
-        continue;
-      }
-      if(freeWayOnly && (y >= blockedDownY  || y <= blockedUpY) ) {
-        continue;
-      }
-      squares.push(new Square(square.x,y));
-    }
-
-    return squares;
-    */
   }
 
   getFileSquares(square, limit, canCapture) {
@@ -196,39 +154,6 @@ class State {
     squares = squares.concat(this.getNSquares(square, limit, canCapture));
 
     return squares;
-    /*
-    if(freeWayOnly === undefined) {
-      freeWayOnly = true;
-    }
-    if(canCapture === undefined) {
-      canCapture = true;
-    }
-    let squares = [];
-    let blockedRightX = -1;
-    let blockedLeftX = this.boardSettings.numberRank;
-    for(let x = 0; x < this.boardSettings.numberFile; x++) {
-      if(typeof this.board[square.y*this.boardSettings.numberFile+x] == "object" && this.board[square.y*this.boardSettings.numberFile+x] !== null) {
-        if(x < square.x) {
-          blockedRightX = x;
-        }
-        if(x > square.x) {
-          blockedLeftX = x;
-        }
-      }
-      if(limit !== undefined && Math.abs(x -  square.x) > limit) {
-        continue;
-      }
-      if(canCapture && x == square.x) {
-        continue;
-      }
-      if(freeWayOnly && (x >= blockedLeftX  || x <= blockedRightX) ) {
-        continue;
-      }
-      squares.push(new Square(x,square.y));
-    }
-
-    return squares;
-    */
   }
 
   getDiagonalsSquares(square, limit, canCapture) {
