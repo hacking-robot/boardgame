@@ -3,7 +3,15 @@ const Move = require('./Move');
 const Square = require('./Square');
 const State = require('./State');
 
+/**
+ * Represents a Board.
+ */
 class Board {
+  /**
+   * Create a board.
+   * @param {object} settings - The board settings.
+   */
+
   constructor(settings) {
     this.boardSettings = settings instanceof BoardSettings ? settings : new BoardSettings(settings);
 

@@ -1,0 +1,32 @@
+{
+  "name": "@chesscode/board",
+  "version": "1.0.0",
+  "description": "A node module that allows building custom board games (chess, minichess, babychess etc..).",
+  "main": "Board.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "node example/index.js",
+    "doc": "jsdoc --package package.json Board.js -c jsdoc.conf.json  -t node_modules/ink-docstrap/template/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/david-soyez/boardgame.git"
+  },
+  "keywords": [
+    "boardgame",
+    "chess",
+    "minichess",
+    "babychess"
+  ],
+  "author": "David Soyez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/david-soyez/boardgame/issues"
+  },
+  "homepage": "https://github.com/david-soyez/boardgame#readme",
+  "dependencies": {
+    "ink-docstrap": "^1.3.2"
+  }
+}
