@@ -283,6 +283,7 @@ class State {
 
   getPathSquares(square, pathSquares, canCapture) {
     let squares = [];
+    let stop = false;
 
     for (let i = 0; i < pathSquares.length; i++) {
       let _square = pathSquares[i];
@@ -299,7 +300,14 @@ class State {
           } else {
             break;
           }
+        } else {
+            // can capture piece
+            // but stop if can't jump over
+           if(!(canCaptureValue & this.JUMP_OPPONENT)) {
+               stop = true;
+            }
         }
+
       } else {
         if(!(canCaptureValue & this.CAPTURE_OWN) || (canCapture & this.DESTINATION)) {
           if(canCaptureValue & this.JUMP_OWN) {
@@ -307,11 +315,21 @@ class State {
           } else {
             break;
           }
+        } else {
+            // can capture piece
+            // but stop if can't jump over
+           if(!(canCaptureValue & this.JUMP_OWN)) {
+               stop = true;
+            }
         }
       }
 
       if(!(canCapture & this.DESTINATION) || i+1 == pathSquares.length) {
         squares.push(_square);
+      }
+
+      if(stop) {
+          break;
       }
 
     }
